@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { apiGetService, apiPostService, apiDeleteService } from '../services';
+import { apiGetService } from '../services';
 
 const playlistReducer = createSlice({
 
@@ -15,7 +15,7 @@ const playlistReducer = createSlice({
             return { ...state, playlist: action.payload }
 
         },
-        postPlaylistLocal: (state, action) => {
+        addPlaylistLocal: (state, action) => {
           
             return { ...state, playlist: action.payload }
 
@@ -31,14 +31,14 @@ const playlistReducer = createSlice({
 
 // request
 
-const { getPlaylistLocal, postPlaylistLocal, deletePlaylistLocal } = playlistReducer.actions;
+const { getPlaylistLocal } = playlistReducer.actions;
 
 export const getPlaylist = () => async dispatch => {
 
     try{
 
         const response = await apiGetService('playlist');
-
+        
         dispatch(getPlaylistLocal(response));
 
     }catch(error){
@@ -49,17 +49,17 @@ export const getPlaylist = () => async dispatch => {
 
 }
 
-export const postPlaylist = payload => async dispatch => {
+export const addPlaylist = id => async dispatch => {
 
     try{
 
-        const response = await apiPostService('playlist/add', payload);
-        
-        dispatch(postPlaylistLocal(response));
+        await apiGetService(`playlist/add`, id);
+
+        dispatch(getPlaylist())
     
     }catch(error){
 
-        console.log('Error: '. error);
+        console.log('Error: ', error);
 
     }
 
@@ -69,8 +69,9 @@ export const deletePlaylist = id => async dispatch => {
 
     try{
 
-        const response = await apiDeleteService('playlist/remove', id);
-        dispatch(deletePlaylistLocal())
+        await apiGetService('playlist/remove', id);
+
+        dispatch(getPlaylist())
 
     }catch(error){
 
