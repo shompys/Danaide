@@ -53,8 +53,8 @@ export const postPlaylist = payload => async dispatch => {
 
     try{
 
-        const response = await apiPostService('playlist/add');
-
+        const response = await apiPostService('playlist/add', payload);
+        
         dispatch(postPlaylistLocal(response));
     
     }catch(error){
@@ -68,6 +68,9 @@ export const postPlaylist = payload => async dispatch => {
 export const deletePlaylist = id => async dispatch => {
 
     try{
+
+        const response = await apiDeleteService('playlist/remove', id);
+        dispatch(deletePlaylistLocal())
 
     }catch(error){
 
