@@ -14,16 +14,6 @@ const playlistReducer = createSlice({
 
             return { ...state, playlist: action.payload }
 
-        },
-        addPlaylistLocal: (state, action) => {
-          
-            return { ...state, playlist: action.payload }
-
-        },
-        deletePlaylistLocal : (state, action) => {
-            
-            return { ...state, playlist: action.payload }
-
         }
     }
 
