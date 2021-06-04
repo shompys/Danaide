@@ -10,6 +10,8 @@ function Home (){
             <Layaout>
 
                 <h1>Listado de todos los canales</h1>
+                <p>Central de todas las camaras existentes</p>
+                
                 <Channels/>
             </Layaout>
 
