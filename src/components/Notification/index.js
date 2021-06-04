@@ -11,19 +11,19 @@ function Notification(){
         <div className={classes.content}>
         
             {
-                notification?.map(({text, type, id}) => {
+                notification?.map(({text, type, id}, index) => {
 
                     return(
-                        <div key={id} >
+                        <div key={index} className={classes.contentItem}>
                             <div>
-                                <span>Tipo de evento:</span>
+                                <span>Tipo de evento: </span>
                                 <span>{type}</span>
                             </div>
-                            
-                            <img className= {classes.img} src={`${process.env.REACT_APP_API_IMAGE}${id}`} alt="notification" />
                             <div>
+                                <span>Descripción: </span>
                                 <span>{text}</span>
                             </div>
+                            <img className= {classes.img} src={`${process.env.REACT_APP_API_IMAGE}${id}`} alt="notification" />
                         </div>
                         )
 
@@ -34,19 +34,19 @@ function Notification(){
 }
 
 const styles = {
-    // content: {
-    //     position: 'absolute',
-    //     right: '0',
-    //     top: '0',
-    // },
-    bell: {
-        position: 'relative',
-        
+    content: {
+        display: 'grid'
+    },
+    contentItem: {
+        margin: '.5rem',
+        padding: '1rem',
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        boxShadow: '0 0 4px 1px var(--color-border)'
     },
     img: {
-        width: '.7rem',
-        borderRadius: '50%',
-        
+        width: '2rem'
         
     }
 }

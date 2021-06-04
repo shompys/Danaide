@@ -12,7 +12,6 @@ function AppRouter (){
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/home" component={Home}/>
-                
                 <Route path="/dashboard" component={Dashboard}/>
                 <Route path="/logs" component={Logs}/>
             </Switch>

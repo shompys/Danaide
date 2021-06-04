@@ -1,7 +1,7 @@
 import React from 'react';
 import jss from '../../jss';
 import { addPlaylist, deletePlaylist, showPlaylist} from '../../redux/playlistReducer';
-import { useDispatch , useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function ItemChannels({ id, name }) {
 
@@ -15,17 +15,30 @@ function ItemChannels({ id, name }) {
 
     const handleAdded = () => {
 
-        setIsAdded(true)
-
-        dispatch(addPlaylist(id))
+        const res = playlist.find((value) => value.id === id )
+        
+        if(!res) {
+            dispatch(addPlaylist(id))
+            setIsAdded(true)
+        } 
+        
     }
     const handleRemove = () => {
         
-        setIsAdded(false)
+        const res = playlist.find((value) => value.id === id )
 
-        dispatch(deletePlaylist(id))
-
+        if(res){
+            dispatch(deletePlaylist(id))
+            setIsAdded(false)
+        }
+        
     }
+    React.useEffect(() => {
+        const res = playlist.find((value) => value.id === id)
+
+        if(res) setIsAdded(true)
+
+    },[])
 
     return(
 
@@ -47,14 +60,12 @@ function ItemChannels({ id, name }) {
                 <p> {name} </p>
                 <div className={classes.contentButton}>
                     {
-                        !isAdded
-                        ?
-                        <button type="button" className={`${classes.button} btn btn-success`} onClick = {() => handleAdded()} ><i className="fas fa-plus-circle"></i>agregar a playlist</button>
-                        :
-                        isAdded && <button type="button" className={`${classes.button} btn btn-danger`} onClick= {() => handleRemove()} ><i className="fas fa-minus-circle"></i>Eliminar de playlist</button>
+                    !isAdded
+                    ?
+                    <button type="button" className={`${classes.button} btn btn-success`} onClick = {() => handleAdded()} ><i className="fas fa-plus-circle"></i>agregar a playlist</button>
+                    :    
+                    <button type="button" className={`${classes.button} btn btn-danger`} onClick= {() => handleRemove()} ><i className="fas fa-minus-circle"></i>Eliminar de playlist</button>
                     }
-             
-                    
                 </div>
             </div>
         </div>

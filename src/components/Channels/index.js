@@ -1,12 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {showChannel} from '../../redux/channelsReducer';
-import {showPlaylist} from '../../redux/playlistReducer';
 import ItemChannels from './ItemChannels';
 import jss from '../../jss';
 
 function Channels() {
-    const playlist = useSelector(showPlaylist);
     
     const channels = useSelector(showChannel);
     
