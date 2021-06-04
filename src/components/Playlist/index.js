@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSelector, useDispatch} from 'react-redux';
-import { getPlaylist, showPlaylist } from '../../redux/playlistReducer';
+import { useSelector } from 'react-redux';
+import { showPlaylist } from '../../redux/playlistReducer';
 import ItemPlaylist from './ItemPlaylist';
 
 function Playlist() {
