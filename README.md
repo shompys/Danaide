@@ -1,6 +1,6 @@
 # Danaide - Frontend
 
-Pequeño proyecto challenge para Danaide
+Pequeño proyecto challenge para Danaide.
 Corriendo actualmente en : [https://danaide.jonathangomezit.com/](https://danaide.jonathangomezit.com/)
 
 
