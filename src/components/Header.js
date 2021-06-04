@@ -1,14 +1,22 @@
 import React from 'react';
 import Navbar from './Navbar';
-import Notification from './Notification';
+import jss from '../jss';
 
 function Header(){
     return(
-        <header style={{background: "#639BAE"}}>
-            HEADER
+        <header className={classes.content}>
+            
             <Navbar/>
-            <Notification/>
+            
         </header>
     )
 }
+const styles = {
+    content: {
+        
+        
+    }
+}
+
+const { classes } = jss.createStyleSheet(styles).attach();
 export default Header;
