@@ -5,9 +5,9 @@ import ItemChannels from './ItemChannels';
 import jss from '../../jss';
 
 function Channels() {
-     
-    const channels = useSelector(showChannel)
-
+    
+    const channels = useSelector(showChannel);
+    
     return(
         <div className={classes.content} >
             {
@@ -36,10 +36,6 @@ const styles = {
             gridTemplateColumns: 'repeat(auto-fill, minmax(360px, 1fr))'
         }
     }
-    
-    
-
-
 }
 const {classes} = jss.createStyleSheet(styles).attach();
 
