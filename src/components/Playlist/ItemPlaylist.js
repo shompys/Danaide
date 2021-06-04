@@ -18,17 +18,19 @@ function ItemPlaylist({ name, id }) {
                 <span>ID: </span>
                 <p> {id} </p>
             </div>
-            
-            <video className={classes.video} autoPlay muted>
-                    <source src={video.src} type="video/mp4" />
-            </video>
-
+            <div className={classes.contentVideo}>
+                <video className={classes.video} autoPlay muted>
+                        <source src={video.src} type="video/mp4" />
+                </video>
+            </div>
             <div className={classes.contentNameCanal}>
                 <span>Nombre de canal: </span>
                 <p> {name} </p>
+
                 <div className={classes.contentButton}>
                     <button type="button" className={`${classes.button} btn btn-danger`} onClick= {() => dispatch(deletePlaylist(id))} ><i className="fas fa-minus-circle"></i>Eliminar de playlist</button>
                 </div>
+
             </div>
         </div>
     )
@@ -39,7 +41,6 @@ const styles = {
         margin: '.5rem',
         backgroundColor: 'var(--color-secondary)',
         display: 'grid',
-        gap: '1rem',
         borderRadius: '.5rem'
     },
     contentId:{
@@ -59,13 +60,19 @@ const styles = {
     button: {
         width: '100%'
     },
+    contentVideo: {
+        height: '200px'
+    },
     video: {
-        width: '100%'
+        width: '100%',
+        height: '100%',
+        objectFit: 'fill'
     },
     contentButton: {
+        
         display: 'grid',
         gap: '.5rem',
-        marginTop: '.5rem'
+        marginTop: '2rem'
     }
 }
 

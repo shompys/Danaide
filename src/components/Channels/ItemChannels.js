@@ -7,7 +7,7 @@ import {useDispatch} from 'react-redux';
 function ItemChannels({ id, name }) {
 
     const dispatch = useDispatch();
-    
+
     const video = {
         src: `${process.env.REACT_APP_API_VIDEO}${id}.mp4`
     }
@@ -20,9 +20,13 @@ function ItemChannels({ id, name }) {
                 <span>ID: </span>
                 <p> {id} </p>
             </div>
-            <video className={classes.video}autoPlay muted>
-                    <source src={video.src} type="video/mp4" />
-            </video>
+
+            <div className={classes.contentVideo}>
+                <video className={classes.video}autoPlay muted>
+                        <source src={video.src} type="video/mp4" />
+                </video>
+            </div>
+
             <div className={classes.contentNameCanal}>
                 <span>Nombre de canal: </span>
                 <p> {name} </p>
@@ -42,7 +46,6 @@ const styles = {
         margin: '.5rem',
         backgroundColor: 'var(--color-secondary)',
         display: 'grid',
-        gap: '1rem',
         borderRadius: '.5rem'
     },
     contentId:{
@@ -62,13 +65,18 @@ const styles = {
     button: {
         width: '100%'
     },
+    contentVideo: {
+        height: '200px'
+    },
     video: {
-        width: '100%'
+        width: '100%',
+        height: '100%',
+        objectFit: 'fill'
     },
     contentButton: {
         display: 'grid',
         gap: '.5rem',
-        marginTop: '.5rem'
+        marginTop: '2rem'
     }
 } 
 
