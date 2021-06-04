@@ -1,20 +1,14 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import { refreshNotification, showNotification } from '../../redux/notificationReducer';
-function Notification(){
+import { useSelector } from 'react-redux';
+import { showNotification } from '../../redux/notificationReducer';
+import jss from '../../jss';
 
-    const dispatch = useDispatch();
+function Notification(){
 
     const notification = useSelector(showNotification);
     
-    React.useEffect(() => {
-
-        dispatch(refreshNotification())
-
-    }, [dispatch])
-
     return(
-        <div>
+        <div className={classes.content}>
         
             {
                 notification?.map(({text, type, id}) => {
@@ -26,7 +20,7 @@ function Notification(){
                                 <span>{type}</span>
                             </div>
                             
-                            <img src={`${process.env.REACT_APP_API_IMAGE}${id}`} alt="notification" />
+                            <img className= {classes.img} src={`${process.env.REACT_APP_API_IMAGE}${id}`} alt="notification" />
                             <div>
                                 <span>{text}</span>
                             </div>
@@ -38,5 +32,25 @@ function Notification(){
         </div>
     )
 }
+
+const styles = {
+    // content: {
+    //     position: 'absolute',
+    //     right: '0',
+    //     top: '0',
+    // },
+    bell: {
+        position: 'relative',
+        
+    },
+    img: {
+        width: '.7rem',
+        borderRadius: '50%',
+        
+        
+    }
+}
+
+const { classes } = jss.createStyleSheet(styles).attach();
 
 export default Notification;
