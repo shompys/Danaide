@@ -8,7 +8,7 @@ const notificationReducer = createSlice({
         notification: []
     },
     reducers: {
-        getNotificationLocal : (state, action) => {
+        getNotificationLocal: (state, action) => {
 
             if (action.payload.length) return { ...state, notification: action.payload }
              

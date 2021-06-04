@@ -6,7 +6,7 @@ function Logs () {
 
     return(
         <Layaout>
-            <h1>Logs</h1>
+            <h1>Último evento detectado</h1>
             <Notification/>
         </Layaout>
     )
