@@ -26,7 +26,7 @@ export const getChannels = () => async dispatch => {
     try{
 
         const response = await apiGetService('channels');
-
+        
         dispatch(getChannelsLocal(response))
 
     }catch(error){
