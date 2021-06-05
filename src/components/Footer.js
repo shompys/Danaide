@@ -24,9 +24,9 @@ function Footer(){
 }
 const styles = {
     content:{
-        borderTop: '2px solid var(--color-secondary)',
-        width: '100%',
-        position: 'fixed',
+        // borderTop: '2px solid var(--color-secondary)',
+        // width: '100%',
+        // position: 'fixed',
         bottom: '0',
         backgroundColor: 'var(--color-primary)',
         padding: '2rem',
