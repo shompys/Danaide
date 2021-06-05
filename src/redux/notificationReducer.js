@@ -48,6 +48,5 @@ export const refreshNotification = () => async dispatch => {
 // useSelector
 
 export const showNotification = state => state.notificationReducer.notification
-export const showacumNotification = state => state.notificationReducer.acumNotification
 
 export default notificationReducer.reducer

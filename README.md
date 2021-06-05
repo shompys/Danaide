@@ -1,8 +1,9 @@
 # Danaide - Frontend
 
-Pequeño proyecto challenge para Danaide
-Corriendo actualmente en : [https://danaide.jonathangomezit.com/](https://danaide.jonathangomezit.com/)
+Pequeño proyecto challenge para Danaide.
+Corriendo actualmente en : [https://danaide.jonathangomezit.com/](https://danaide.jonathangomezit.com/) 
 
+No funcionan las peticiones porque el endpoint son http y no https y son bloqueadas.
 
 ## Requisitos 
 _Tener instalado Node y ver realizado el git clone_
