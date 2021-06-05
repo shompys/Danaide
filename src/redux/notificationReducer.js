@@ -5,12 +5,16 @@ const notificationReducer = createSlice({
 
     name: 'notification',
     initialState: {
-        notification: []
+        notification: null
     },
     reducers: {
         getNotificationLocal: (state, action) => {
+            
+            if (action.payload.length) {
 
-            if (action.payload.length) return { ...state, notification: action.payload }
+                state.notification = action.payload[0]
+
+            }
              
         }
     }
@@ -21,23 +25,18 @@ const notificationReducer = createSlice({
 
 const { getNotificationLocal } = notificationReducer.actions;
 
-export const getNotification = () => async dispatch => {
-
-    try{
-
-        const response = await apiGetService('event');
-        
-        dispatch(getNotificationLocal(response))
-
-    }catch(error){
-        console.log('Error: ', error);
-    }
-
-}
 export const refreshNotification = () => async dispatch => {
 
-    setInterval(() => {
-        dispatch(getNotification())
+    setInterval(async () => {
+        try{
+
+            const response = await apiGetService('event');
+            
+            dispatch(getNotificationLocal(response))
+    
+        }catch(error){
+            console.log('Error: ', error);
+        }
     },1000)
 
 }

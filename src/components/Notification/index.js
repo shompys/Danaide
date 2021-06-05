@@ -6,29 +6,32 @@ import jss from '../../jss';
 function Notification(){
 
     const notification = useSelector(showNotification);
-    
+
     return(
         <div className={classes.content}>
-        
-            {
-                notification?.map(({text, type, id}, index) => {
 
-                    return(
-                        <div key={index} className={classes.contentItem}>
+            {notification &&
+                        <div className={classes.contentItem}>
                             <div>
                                 <span>Tipo de evento: </span>
-                                <span>{type}</span>
+                                <span>{notification.type}</span>
                             </div>
                             <div>
                                 <span>Descripción: </span>
-                                <span>{text}</span>
+                                <span>{notification.text}</span>
                             </div>
-                            <img className= {classes.img} src={`${process.env.REACT_APP_API_IMAGE}${id}`} alt="notification" />
+                            <img className= {classes.img} src={`${process.env.REACT_APP_API_IMAGE}${notification.id}`} alt="notification" />
                         </div>
+            }
+            {/* {
+                notification?.map(({text, type, id}, index) => {
+
+                    return(
+                        
                         )
 
                 })
-            }
+            } */}
         </div>
     )
 }
