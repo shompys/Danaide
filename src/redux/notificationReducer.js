@@ -25,11 +25,6 @@ const notificationReducer = createSlice({
 
 const { getNotificationLocal } = notificationReducer.actions;
 
-// export const getNotification = () => async dispatch => {
-
-    
-
-// }
 export const refreshNotification = () => async dispatch => {
 
     setInterval(async () => {
