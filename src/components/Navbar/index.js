@@ -7,26 +7,25 @@ import { useSelector } from 'react-redux';
 function Navbar(){
     
     const notification = useSelector(showNotification)
+
     const [isNotification, setIsNotification] = React.useState(false)
-    const [currentNotification, setCurrentNotification] = React.useState([])
-    
+    const [currentNotification, setCurrentNotification] = React.useState(null)
     
     const handleEventNotification = () => {
 
         setCurrentNotification(notification)
-        if(currentNotification.length) {
+        if(currentNotification) {
 
             setIsNotification(true)
-
             setCurrentNotification([])
-
         }
 
     }
     
+
     React.useEffect(() => {
         
-        handleEventNotification()
+        handleEventNotification();
         
     },[notification])
 
@@ -41,11 +40,11 @@ function Navbar(){
                 <i className="fas fa-th-list"></i>
             </Link>
             
-            <div className={classes.contentNotification} onClick={() => setIsNotification(false)}>
+            <div className={classes.contentNotification} >
             
             
-                {isNotification && <span className={classes.alert}></span>}
-            
+                {isNotification && <span className={classes.alert} onClick={() => setIsNotification(false)}></span>}
+                
                 <Link className={`${classes.item}`} to='/logs' >
                     <i className="fas fa-bell"></i>
                 </Link>
