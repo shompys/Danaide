@@ -11,8 +11,16 @@ function Playlist() {
     return(
         <div className={classes.content}>
             {
+            playlist.length ? 
                 playlist?.map( value => <ItemPlaylist key={value.id} {...value}/>)
+            : 
+                <p className={classes.clear}>
+                    
+                    Ops la playlist se encuentra vacia
+
+                </p>
             }
+            
         </div>
     )
 }
@@ -20,6 +28,11 @@ const styles = {
 
     content: {
         display:'grid'
+    },
+    clear: {
+        padding: '5rem',
+        justifySelf: 'center'
+
     },
     '@media screen and (min-width: 768px)': {
         content: {
