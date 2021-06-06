@@ -41,7 +41,7 @@ _Aquí usaras el endpoint que genera la url que otorga la imagen_
 
 _Una vez realizado esto ejecutar_
 ```
-npm start
+npm run dev
 ```
 ---
 ## Construido con 🛠️
