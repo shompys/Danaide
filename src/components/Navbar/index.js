@@ -9,26 +9,26 @@ function Navbar(){
     const notification = useSelector(showNotification)
 
     const [isNotification, setIsNotification] = React.useState(false)
-    const [currentNotification, setCurrentNotification] = React.useState(null)
+    const [currentNotification, setCurrentNotification] = React.useState(false)
     
     const handleEventNotification = () => {
-
+        
         setCurrentNotification(notification)
+       
         if(currentNotification) {
-
+            
             setIsNotification(true)
-            setCurrentNotification([])
+            setCurrentNotification(false)
         }
 
     }
     
-
     React.useEffect(() => {
         
         handleEventNotification();
         
     },[notification])
-
+    
     return(
         <nav className={classes.content}>
             
@@ -40,12 +40,12 @@ function Navbar(){
                 <i className="fas fa-th-list"></i>
             </Link>
             
-            <div className={classes.contentNotification} >
+            <div className={classes.contentNotification} onClick={() => setIsNotification(false)}>
             
             
-                {isNotification && <span className={classes.alert} onClick={() => setIsNotification(false)}></span>}
+                {isNotification && <span className={classes.alert} ></span>}
                 
-                <Link className={`${classes.item}`} to='/logs' >
+                <Link className={`${classes.item}`} to='/logs'>
                     <i className="fas fa-bell"></i>
                 </Link>
             </div>

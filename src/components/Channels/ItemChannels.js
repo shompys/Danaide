@@ -38,7 +38,7 @@ function ItemChannels({ id, name }) {
 
         if(res) setIsAdded(true)
 
-    },[])
+    },[id, playlist])
 
     return(
 
